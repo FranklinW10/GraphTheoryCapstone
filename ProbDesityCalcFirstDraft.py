@@ -118,20 +118,44 @@ def calcsmax():
 
 
 def calcfinal():
-    Smin = min(SavedMaxs, key = lambda t: t[0])
-    Smax = max(SavedMaxs, key = lambda t: t[0])
+    min_val = min(t[0] for t in SavedMaxs)
+    max_val = max(t[0] for t in SavedMaxs)
+
+    Smin_list = [t for t in SavedMaxs if t[0] == min_val]
+    Smax_list = [t for t in SavedMaxs if t[0] == max_val]
     Savgmax = max(SavedAverages, key = lambda t: t[0])
     Savgmin = min(SavedAverages, key = lambda t: t[0])
     Averages = [t[0] for t in SavedAverages]
     for i in Averages:
         print(i)
-    print("\nSmin: \n Cop:", Smin[2], "Robber:", Smin[1], "Expected:", Smin[0])
-    print("Smax: \n Cop:", Smax[2], "Robber:", Smax[1], "Expected:", Smax[0])
+    print("\nSmin (ties):")
+    for t in Smin_list:
+        print(" Cop:", t[2], "Robber:", t[1], "Expected:", t[0])
+
+    print("\nSmax (ties):")
+    for t in Smax_list:
+        print(" Cop:", t[2], "Robber:", t[1], "Expected:", t[0])
     print("Savgmin: \n Cop:", Savgmin[1], "Expected:", Savgmin[0])
     print("Savgmax: \n Cop:", Savgmax[1], "Expected:", Savgmax[0])
+    print(V)
+    print(E)
 
-V = [1,2,3,4,5,6,7,8]
-E = [(1,2),(2,3),(3,4),(4,5),(5,6),(6,7),(6,8),(3,8),(4,8)]
+V = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+E = [
+(1,2),
+(2,3),
+(1,4),
+(4,5),
+(1,9),
+(7,9),
+(7,8),
+(6,8),
+(6,10),
+(5,11),
+(11,12),
+(12,13)
+]
+
 CalculateCaptureTime(V, E)
 
 
