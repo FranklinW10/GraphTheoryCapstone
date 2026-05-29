@@ -27,7 +27,7 @@ hunter near the center of the graph would minimize expected capture time.
 ## Results
 Our results showed that when the treasure is placed randomly, the starting 
 position of the hunter does not matter in terms of average expected capture 
-time — a surprising and counterintuitive result.
+time. This was a surprising and counterintuitive result.
 
 ## What the Code Does
 For any given graph the code computes:
@@ -40,8 +40,15 @@ For any given graph the code computes:
 ## Technologies
 - Python
 
-## Usage
-Define your graph by setting the vertex list `V` and edge list `E` at the 
+## Getting Started
+Clone the repository and run the script directly — no dependencies required.
+
+```bash
+git clone https://github.com/FranklinW10/GraphTheoryCapstone
+cd GraphTheoryCapstone
+python capstone.py
+```
+You can define your graph by setting the vertex list `V` and edge list `E` at the 
 bottom of the script, then run:
 
 ```bash
