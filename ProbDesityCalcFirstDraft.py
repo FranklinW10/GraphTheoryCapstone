@@ -5,6 +5,7 @@ savedpaths = []
 expectedTimes =[]
 SavedMaxs = []
 SavedAverages = []
+TotalTurns = 0
 
 def CalculateCaptureTime(V, E):
     savedE = E.copy()
@@ -84,10 +85,12 @@ def contract(E, v):
 #     return newE
 
 def calc(turns, savedoptions_new):
+    global TotalTurns
     total = 1
     for i in savedoptions_new:
         total = total*(1/i)
     num = turns * total
+    TotalTurns += turns
     saveddensitys.append(num)
 
 def calctotaltime(k, l, saveddensitys):
@@ -139,14 +142,10 @@ def calcfinal():
     print("Savgmax: \n Cop:", Savgmax[1], "Expected:", Savgmax[0])
     print(V)
     print(E)
+    print("totalTurns:", TotalTurns)
 
 V = [1,2,3,4]
-E = [
-(1,2),
-(2,3),
-(1,3),
-(3,4)
-]
+E = [(1,2),(2,3),(3,4),(1,4)]
 
 CalculateCaptureTime(V, E)
 
